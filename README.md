@@ -13,7 +13,7 @@ Features :
 + Proximity fade
 + Bump map
 + Normal Map
-+ Texture base Splash Effect : Subviewport detect collisions with 'FloatBody' objects and Collision. Water surface repeat collision texture as much as the Subdivision value for performance. Therefore, if the Subdivision is greater than 1, Camera must be adjusted well to prevent repeated textures from being visible.
++ Texture base Splash Effect : Subviewport detect collisions with 'FloatBody' objects. Water surface repeat collision texture as much as the Subdivision value for performance. Therefore, if the Subdivision is greater than 1, Camera must be adjusted well to prevent repeated textures from being visible.
 + Rain Effect
 
 ## Usage
