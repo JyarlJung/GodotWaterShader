@@ -1,0 +1,47 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://dwcw3lysu6q6w"]
+
+[ext_resource type="Shader" path="res://material/shader/water.gdshader" id="1_6r78r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_t5rd1"]
+noise_type = 3
+seed = 1
+fractal_octaves = 3
+fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ru56v"]
+seamless = true
+noise = SubResource("FastNoiseLite_t5rd1")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vrmie"]
+noise_type = 3
+frequency = 0.05
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_csn5p"]
+seamless = true
+as_normal_map = true
+bump_strength = 2.0
+noise = SubResource("FastNoiseLite_vrmie")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6r78r")
+shader_parameter/water_color = Color(0.12, 0.25, 0.32, 1)
+shader_parameter/border_color = Color(0.4, 0.5, 0.6, 1)
+shader_parameter/border_scale = 0.0
+shader_parameter/roughness = 0.05
+shader_parameter/specular = 0.5
+shader_parameter/fade_distance = 5.0
+shader_parameter/move_vec = Vector2(1, 1)
+shader_parameter/height_strength = 0.1
+shader_parameter/height_tex = SubResource("NoiseTexture2D_ru56v")
+shader_parameter/normal_move_vec = Vector2(-0.2, 0.1)
+shader_parameter/normal_strength = 0.1
+shader_parameter/refraction_value = 0.05
+shader_parameter/wave_tex = SubResource("NoiseTexture2D_csn5p")
+shader_parameter/ssr_max_travel = 40
+shader_parameter/step_pixel_size = 3.0
+shader_parameter/depth_tolerance = 0.2
+shader_parameter/collision_size = null
+shader_parameter/subdivision = null
+shader_parameter/splash_strength = 1.5
+shader_parameter/depth_clip = 25.0
